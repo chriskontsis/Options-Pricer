@@ -1,7 +1,5 @@
 #ifndef OPTION_MODEL
-#define OPTOIN_MODEL
-
-
+#define OPTION_MODEL
 
 class OptionModel {
 public:
@@ -36,13 +34,13 @@ public:
                            double volatility, double dividendYeild) const;
 };
 
-class optionFunctions {
+class OptionFunctions {
 protected:
     const OptionModel& model;
 
 public:
-    optionFunctions(OptionModel& model);
-    virtual ~optionFunctions();
+    OptionFunctions(OptionModel& model);
+    virtual ~OptionFunctions();
 
 
     inline virtual double value(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
@@ -64,7 +62,45 @@ public:
                                 double dividendYeild) const;
 };
 
+class CallOption : public OptionFunctions {
+public:
+    CallOption(OptionModel& model);
+    virtual ~CallOption();
+
+    inline virtual double value(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;
+    inline virtual double delta(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;       
+    inline virtual double vega(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;
+    inline virtual double theta(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;
+    inline virtual double gamma(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;
+    inline virtual double rho(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;
+};
+
+class PutOption : public OptionFunctions {
+public: 
+    PutOption(OptionModel& model);
+    virtual ~PutOption();
+
+    inline virtual double value(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;
+    inline virtual double delta(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;       
+    inline virtual double vega(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;
+    inline virtual double theta(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;
+    inline virtual double gamma(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;
+    inline virtual double rho(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
+                                double volatility, double dividendYeild) const override;
+};
 
 
 
-#endif;
+
+#endif
