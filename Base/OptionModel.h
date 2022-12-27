@@ -15,8 +15,6 @@ public:
                                 double volatility, double dividendYeild) const;
     virtual double callOptionTheta(double spotPrice, double strikePrice, double exipiration, double riskFreeInterestRate,
                                 double volatility, double dividendYeild) const;
-   virtual double callOptionGamma(double spotPrice, double strikePrice, double exipiration, double riskFreeInterestRate,
-                                double volatility, double dividendYeild) const;
     virtual double callOptionRho(double spotPrice, double strikePrice, double exipiration, double riskFreeInterestRate,
                                 double volatility, double dividendYeild) const ;
 
@@ -27,8 +25,6 @@ public:
     virtual double putOptionVega(double spotPrice, double strikePrice, double exipiration, double riskFreeInterestRate,
                            double volatility, double dividendYeild) const;
     virtual double putOptionTheta(double spotPrice, double strikePrice, double exipiration, double riskFreeInterestRate,
-                           double volatility, double dividendYeild) const;
-    virtual double putOptionGamma(double spotPrice, double strikePrice, double exipiration, double riskFreeInterestRate,
                            double volatility, double dividendYeild) const;
     virtual double putOptionRho(double spotPrice, double strikePrice, double exipiration, double riskFreeInterestRate,
                            double volatility, double dividendYeild) const;
@@ -50,8 +46,6 @@ public:
     inline virtual double vega(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
                                 double volatility, double dividendYeild) const = 0;
     inline virtual double theta(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
-                                double volatility, double dividendYeild) const = 0;
-    inline virtual double gamma(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
                                 double volatility, double dividendYeild) const = 0;
     inline virtual double rho(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
                                 double volatility, double dividendYeild) const = 0;
@@ -75,8 +69,6 @@ public:
                                 double volatility, double dividendYeild) const override;
     inline virtual double theta(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
                                 double volatility, double dividendYeild) const override;
-    inline virtual double gamma(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
-                                double volatility, double dividendYeild) const override;
     inline virtual double rho(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
                                 double volatility, double dividendYeild) const override;
 };
@@ -94,13 +86,9 @@ public:
                                 double volatility, double dividendYeild) const override;
     inline virtual double theta(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
                                 double volatility, double dividendYeild) const override;
-    inline virtual double gamma(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
-                                double volatility, double dividendYeild) const override;
     inline virtual double rho(double spotPrice, double strikePrice, double expiration, double riskFreeInterestRate, 
                                 double volatility, double dividendYeild) const override;
 };
-
-
 
 
 #endif
